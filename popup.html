@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nudge</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header class="header">
+      <h1>Nudge</h1>
+      <p id="currentDate"></p>
+    </header>
+
+    <!-- Daily Progress -->
+    <div class="card progress-card">
+      <div class="progress-ring">
+        <svg viewBox="0 0 36 36">
+          <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+          <path class="circle-fill" id="progressCircle" stroke-dasharray="0 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+        </svg>
+        <div class="percentage"><span id="progressValue">0</span>%</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><span id="waterStat">0</span>/8 Water</div>
+        <div class="stat"><span id="sessionStat">0</span> Focus</div>
+      </div>
+    </div>
+
+    <!-- Quick Actions -->
+    <div class="section-title">Quick Actions</div>
+    
+    <!-- Water Intake with Reminder -->
+    <div class="card action-card">
+      <div class="action-row">
+        <span>Water Intake</span>
+        <div class="water-controls">
+          <button id="removeWater" class="btn-icon">-</button>
+          <span id="waterCount">0</span>
+          <button id="addWater" class="btn-icon">+</button>
+        </div>
+      </div>
+      <!-- Water Reminder Row -->
+      <div class="water-reminder-row">
+        <label>Remind every:</label>
+        <select id="waterInterval">
+          <option value="30">30 min</option>
+          <option value="60" selected>1 hour</option>
+          <option value="90">1.5 hours</option>
+          <option value="120">2 hours</option>
+        </select>
+        <button id="waterRemindBtn" class="btn-tiny">Start</button>
+      </div>
+    </div>
+
+    <!-- PERSISTENT TIMER -->
+    <div class="card action-card timer-card-highlight">
+      <div class="timer-header">Pomodoro Timer</div>
+      <div class="timer-big-display" id="timerDisplay">25:00</div>
+      <div class="timer-btn-group">
+        <button id="timerStartBtn" class="btn-small">Start</button>
+        <button id="timerPauseBtn" class="btn-small" disabled>Pause</button>
+        <button id="timerResetBtn" class="btn-small btn-secondary">Reset</button>
+      </div>
+    </div>
+
+    <!-- Reminders Toggles -->
+    <div class="section-title">Health Nudges</div>
+    
+    <div class="card toggles-card">
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-name">20-20-20 Rule</span>
+          <span class="toggle-desc">Every 20 min</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleEye">
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-name">Blink Reminder</span>
+          <span class="toggle-desc">Every 10 min</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleBlink">
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-name">Posture Check</span>
+          <span class="toggle-desc">Every 15 min</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="togglePosture">
+          <span class="slider"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-name">Stand Up</span>
+          <span class="toggle-desc">Every 30 min</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleStandUp">
+          <span class="slider"></span>
+        </label>
+      </div>
+      
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <span class="toggle-name">Stretch</span>
+          <span class="toggle-desc">Every 60 min</span>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="toggleStretch">
+          <span class="slider"></span>
+        </label>
+      </div>
+    </div>
+
+    <!-- Quick Alarm -->
+    <div class="section-title">Quick Alarm</div>
+    <div class="card action-card">
+       <div class="alarm-input-row">
+         <input type="number" id="alarmMinutes" placeholder="Minutes (e.g. 5)" min="1">
+         <input type="text" id="alarmLabel" placeholder="Label (optional)">
+         <button id="setAlarmBtn" class="btn-small">Set</button>
+       </div>
+    </div>
+
+    <!-- Box Breathing -->
+    <div class="section-title">Box Breathing</div>
+    <div class="card breathing-widget">
+       <div class="breath-circle" id="breathCircle">
+         <span id="breathText">Start</span>
+       </div>
+       <button id="breathBtn" class="btn-small">Begin Session</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <button id="resetBtn" class="btn-reset">Reset Daily Progress</button>
+      <div class="credits">
+    Made with care by <a href="https://github.com/Swarup113" target="_blank">Swarup Dewanjee</a>
+      </div>    
+    </footer>
+  </div>
+  
+  <script src="popup.js"></script>
+</body>
+</html>
